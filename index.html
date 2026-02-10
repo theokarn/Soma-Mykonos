@@ -70,19 +70,21 @@
     opacity: 0.7;
 }
 
-.book-btn {
-    background: rgba(237, 230, 212, 0.2);
-    padding: 10px 25px;
-    border-radius: 25px;
+.instagram-link {
     color: #EDE6D4;
     text-decoration: none;
-    font-size: 13px;
-    border: 1px solid rgba(237, 230, 212, 0.3);
-    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
 }
 
-.book-btn:hover {
-    background: rgba(237, 230, 212, 0.3);
+.instagram-link:hover {
+    opacity: 0.7;
+}
+
+nav.scrolled .instagram-link {
+    color: #4B4D39;
 }
         
         .logo {
@@ -100,12 +102,6 @@
 nav.scrolled .logo,
 nav.scrolled .nav-links a {
     color: #4B4D39;
-}
-
-nav.scrolled .book-btn {
-    background: #4B4D39;
-    color: #EDE6D4;
-    border-color: #4B4D39;
 }
    
         .nav-links {
@@ -531,14 +527,15 @@ html {
     <div class="nav-left">
         <div class="logo">Sōma Mykonos</div>
         <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Book</a></li>
-</ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#book">Book</a></li>
+        </ul>
     </div>
-    <a href="#contact" class="book-btn">Book now</a>
+    <a href="https://instagram.com/soma.mykonos" target="_blank" class="instagram-link">Find us @soma.mykonos</a>
 </nav>
+
 
     <!-- Hero Section with Video Background -->
     <section id="home" class="hero">
