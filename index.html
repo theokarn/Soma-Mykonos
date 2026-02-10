@@ -32,6 +32,7 @@
     align-items: center;
     z-index: 100;
     background: transparent;
+    transition: all 0.3s ease;
 }
 
 .nav-left {
@@ -44,7 +45,8 @@
     font-size: 22px;
     font-weight: 400;
     letter-spacing: 0.5px;
-    color: #EDE6D4 ;
+    color: #EDE6D4;
+    transition: color 0.3s ease;
 }
 
 .nav-links {
@@ -54,13 +56,31 @@
 }
 
 .nav-links a {
-    color: #EDE6D4 ;
+    color: #EDE6D4;
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
-    transition: opacity 0.3s;
+    transition: all 0.3s ease;
 }
 
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.book-btn {
+    background: rgba(237, 230, 212, 0.2);
+    padding: 10px 25px;
+    border-radius: 25px;
+    color: #EDE6D4;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid rgba(237, 230, 212, 0.3);
+    transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+    background: rgba(237, 230, 212, 0.3);
+}
         
         .logo {
             font-size: 22px;
@@ -68,7 +88,7 @@
             letter-spacing: 0.5px;
             color: #4B4D39 ;
         }
-    nav.scrolled {
+   nav.scrolled {
     background: rgba(237, 230, 212, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -82,7 +102,9 @@ nav.scrolled .nav-links a {
 nav.scrolled .book-btn {
     background: #4B4D39;
     color: #EDE6D4;
-}    
+    border-color: #4B4D39;
+}
+   
         .nav-links {
             display: flex;
             gap: 35px;
@@ -407,7 +429,7 @@ nav.scrolled .book-btn {
         
         input:focus, textarea:focus {
             outline: none;
-            border-color:  #EDE6D4 ;
+            border-color: #EDE6D4 ;
             background: rgba(237, 230, 212, 0.15);
         }
         
