@@ -16,10 +16,10 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #3C2415;
+            color: #4B4D39 ;
             line-height: 1.6;
             overflow-x: hidden;
-            background: #DDD9CE;
+            background: #EDE6D4 ;
         }
         
         nav {
@@ -44,7 +44,7 @@
     font-size: 22px;
     font-weight: 400;
     letter-spacing: 0.5px;
-    color: #DDD9CE;
+    color: #EDE6D4 ;
 }
 
 .nav-links {
@@ -54,7 +54,7 @@
 }
 
 .nav-links a {
-    color: #DDD9CE;
+    color: #EDE6D4 ;
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
@@ -66,9 +66,23 @@
             font-size: 22px;
             font-weight: 400;
             letter-spacing: 0.5px;
-            color: #3C2415;
+            color: #4B4D39 ;
         }
-        
+    nav.scrolled {
+    background: rgba(237, 230, 212, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav.scrolled .logo,
+nav.scrolled .nav-links a {
+    color: #4B4D39;
+}
+
+nav.scrolled .book-btn {
+    background: #4B4D39;
+    color: #EDE6D4;
+}    
         .nav-links {
             display: flex;
             gap: 35px;
@@ -76,7 +90,7 @@
         }
         
         .nav-links a {
-            color: #3C2415;
+            color: #4B4D39 ;
             text-decoration: none;
             font-size: 14px;
             font-weight: 400;
@@ -88,10 +102,10 @@
         }
         
         .book-btn {
-            background: #3C2415;
+            background: #4B4D39 ;
             padding: 10px 25px;
             border-radius: 25px;
-            color: #DDD9CE;
+            color:  #EDE6D4 ;
             text-decoration: none;
             font-size: 13px;
             transition: all 0.3s;
@@ -129,14 +143,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(60, 36, 21, 0.35);
+            background: rgba(75, 77, 57, 0.35);
             z-index: 0;
         }
         
         .hero-content {
             position: relative;
             z-index: 1;
-            color: #DDD9CE;
+            color:  #EDE6D4 ;
         }
         
         .hero h1 {
@@ -158,8 +172,8 @@
 }
         
         .cta-btn {
-            background: #DDD9CE;
-            color: #3C2415;
+            background:  #EDE6D4 ;
+            color: #4B4D39 ;
             padding: 16px 45px;
             border-radius: 30px;
             text-decoration: none;
@@ -175,13 +189,13 @@
         
         .cta-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(221, 217, 206, 0.3);
+            box-shadow: 0 5px 20px rgba(237, 230, 212, 0.3);
         }
         
         .services {
-            background: #DDD9CE;
+            background:  #EDE6D4 ;
             padding: 100px 50px;
-            color: #3C2415;
+            color: #4B4D39 ;
         }
         
         .services h2 {
@@ -203,7 +217,7 @@
             background: rgba(255, 255, 255, 0.5);
             padding: 40px 30px;
             border-radius: 6px;
-            border: 1px solid rgba(60, 36, 21, 0.1);
+            border: 1px solid rgba(75, 77, 57, 0.1);
         }
         
         .service-card h3 {
@@ -213,7 +227,7 @@
         }
         
         .service-card p {
-            color: #3C2415;
+            color: #4B4D39 ;
             opacity: 0.8;
             line-height: 1.7;
             margin-bottom: 20px;
@@ -223,13 +237,107 @@
         .price {
             font-size: 1.3rem;
             font-weight: 500;
-            color: #3C2415;
+            color: #4B4D39 ;
         }
         
+.about {
+    background: #EDE6D4;
+    padding: 100px 50px;
+    color: #4B4D39;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.soma-definition {
+    background: rgba(75, 77, 57, 0.08);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.definition {
+    font-size: 1.1rem;
+    color: #4B4D39;
+    margin: 0;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.reviews {
+    margin-top: 50px;
+}
+
+.reviews h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 3px solid #4B4D39;
+}
+
+.stars {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.review-card p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.reviewer {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.about-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.about-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+}
+
         .contact {
-            background: #3C2415;
+            background: #4B4D39 ;
             padding: 100px 50px;
-            color: #DDD9CE;
+            color:  #EDE6D4 ;
         }
         
         .contact h2 {
@@ -285,22 +393,22 @@
             width: 100%;
             padding: 16px;
             margin-bottom: 18px;
-            border: 1px solid rgba(221, 217, 206, 0.3);
+            border: 1px solid rgba(237, 230, 212, 0.3);
             border-radius: 6px;
             font-size: 15px;
             font-family: inherit;
-            background: rgba(221, 217, 206, 0.1);
-            color: #DDD9CE;
+            background: rgba(237, 230, 212, 0.1);
+            color:  #EDE6D4 ;
         }
         
         input::placeholder, textarea::placeholder {
-            color: rgba(221, 217, 206, 0.6);
+            color: rgba(237, 230, 212, 0.6);
         }
         
         input:focus, textarea:focus {
             outline: none;
-            border-color: #DDD9CE;
-            background: rgba(221, 217, 206, 0.15);
+            border-color:  #EDE6D4 ;
+            background: rgba(237, 230, 212, 0.15);
         }
         
         textarea {
@@ -310,8 +418,8 @@
         
         button[type="submit"] {
             width: 100%;
-            background: #DDD9CE;
-            color: #3C2415;
+            background:  #EDE6D4 ;
+            color: #4B4D39 ;
             padding: 16px;
             border: none;
             border-radius: 6px;
@@ -324,12 +432,12 @@
         
         button[type="submit"]:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(221, 217, 206, 0.3);
+            box-shadow: 0 5px 15px rgba(237, 230, 212, 0.3);
         }
         
         footer {
-            background: #DDD9CE;
-            color: #3C2415;
+            background:  #EDE6D4 ;
+            color: #4B4D39 ;
             text-align: center;
             padding: 35px;
             font-size: 14px;
@@ -350,6 +458,9 @@
                 padding: 60px 25px;
             }
         }
+html {
+    scroll-behavior: smooth;
+}
     </style>
 </head>
 <body>
@@ -358,10 +469,11 @@
     <div class="nav-left">
         <div class="logo">Sōma Mykonos</div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Book</a></li>
-        </ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Book</a></li>
+</ul>
     </div>
     <a href="#contact" class="book-btn">Book now</a>
 </nav>
@@ -379,7 +491,41 @@
 </div>
     </section>
 
-    <!-- Services Section -->
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="about-content">
+        <div class="about-text">
+            <h2>About Sōma</h2>
+            <div class="soma-definition">
+                <p class="definition"><em>Sōma</em> (σῶμα) — Ancient Greek word for "body"</p>
+            </div>
+            <p>We bring the art of therapeutic massage to your doorstep in Mykonos. Whether you're at your villa, hotel, or beachside retreat, our mobile service delivers personalized relaxation and recovery treatments designed for your body's unique needs.</p>
+            <p>Trained in Swedish, deep tissue, and sports massage techniques, we combine ancient wellness wisdom with modern therapeutic practice.</p>
+            
+            <!-- Google Reviews -->
+            <div class="reviews">
+                <h3>What our clients say</h3>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <p>"Best massage I've ever had. Came directly to our villa and the sunset session was unforgettable."</p>
+                    <p class="reviewer">— Maria K., Google Reviews</p>
+                </div>
+                <div class="review-card">
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                    <p>"Professional, calming, exactly what we needed after exploring the island all day."</p>
+                    <p class="reviewer">— James T., Google Reviews</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-images">
+            <img src="massage1.jpg" alt="Sōma massage treatment" class="about-img">
+            <img src="massage2.jpg" alt="Mykonos mobile massage" class="about-img">
+        </div>
+    </div>
+</section>
+    
+<!-- Services Section -->
     <section id="services" class="services">
         <h2>Our Services</h2>
         <div class="service-grid">
@@ -423,7 +569,19 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Sōma Mykonos. Mobile massage service in Mykonos.</p>
-    </footer>
+    <p>© 2026 Sōma Mykonos. Mobile massage service in Mykonos.</p>
+    <p style="margin-top: 15px;">Follow us on Instagram: <a href="https://instagram.com/soma.mykonos" target="_blank" style="color: #4B4D39; text-decoration: underline;">@soma.mykonos</a></p>
+</footer>
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
