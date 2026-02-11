@@ -525,6 +525,52 @@ nav.scrolled .nav-links a {
 html {
     scroll-behavior: smooth;
 }
+
+/* Scroll Animation System */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.appear {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.appear {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-up.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
     </style>
 </head>
 <body>
@@ -559,7 +605,7 @@ html {
 <!-- About Section -->
 <section id="about" class="about">
     <div class="about-content">
-        <div class="about-text">
+        <div class="about-text fade-in-left">
             <h2>About Sōma</h2>
             <div class="soma-definition">
                 <p class="definition"><em>Sōma</em> (σῶμα) — Ancient Greek word for "body"</p>
@@ -583,7 +629,7 @@ html {
             </div>
         </div>
         
-        <div class="about-images">
+        <div class="about-images fade-in-right">
             <img src="massage1.jpg" alt="Sōma massage treatment" class="about-img">
             <img src="massage2.jpg" alt="Mykonos mobile massage" class="about-img">
         </div>
@@ -648,5 +694,29 @@ html {
         }
     });
 </script>
+
+<script>
+// Scroll Animation Observer
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        }
+    });
+}, observerOptions);
+
+// Observe all elements with animation classes
+document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-up');
+    fadeElements.forEach(el => observer.observe(el));
+});
+</script>
+
 </body>
 </html>
+
