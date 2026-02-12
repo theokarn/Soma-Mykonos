@@ -304,104 +304,208 @@ nav.scrolled .nav-links a {
             color: #4B4D39 ;
         }
         
+/* About Section - REPLACE EVERYTHING FROM HERE */
 .about {
-    background: linear-gradient(to right, #EDE6D4 0%, #EDE6D4 50%, #3A4B41 50%, #3A4B41 100%);
-    padding: 100px 50px;
-    color: #4B4D39;
+    background: #EDE6D4;
+    padding: 0;
 }
 
-.about-content {
-    max-width: 1200px;
-    margin: 0 auto;
+.about-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    min-height: 70vh;
+}
+
+/* Left Side: Dictionary Definition */
+.definition-side {
+    background: #FFFFFF;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
 }
 
-.about h2 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+.definition-card {
+    max-width: 500px;
+}
+
+.definition-word {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 8vw, 6rem);
     font-weight: 300;
-    margin-bottom: 30px;
+    color: #000000;
+    margin: 0 0 15px 0;
+    line-height: 1;
 }
 
-.soma-definition {
-    background: rgba(75, 77, 57, 0.08);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-.definition {
+.definition-pronunciation {
+    font-family: 'Lato', sans-serif;
     font-size: 1.1rem;
-    color: #4B4D39;
+    color: #666666;
+    margin: 0 0 30px 0;
+    font-weight: 400;
+}
+
+.definition-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    color: #333333;
+    line-height: 1.7;
     margin: 0;
 }
 
-.about-text p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    opacity: 0.9;
+/* Right Side: About Text */
+.text-side {
+    background: #EDE6D4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
 }
 
-.reviews {
-    margin-top: 50px;
-}
-
-.reviews h3 {
-    font-size: 1.8rem;
+.text-side h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 400;
-    margin-bottom: 25px;
-    color: #EDE6D4;  /* UPDATED */
+    color: #4B4D39;
+    margin: 0 0 30px 0;
+}
+
+.text-side p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    color: #4B4D39;
+    line-height: 1.8;
+    margin: 0 0 20px 0;
+    max-width: 550px;
+}
+
+/* Reviews & Photos Section (Green Background) */
+.reviews-photos-section {
+    background: #4B4D39;
+    padding: 80px 40px 60px;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.reviews-container h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: #EDE6D4;
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+
+.review-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .review-card {
-    background: rgba(237, 230, 212, 0.15);  /* UPDATED */
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border-left: 3px solid #EDE6D4;  /* UPDATED */
+    background: rgba(237, 230, 212, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(237, 230, 212, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    background: rgba(237, 230, 212, 0.15);
 }
 
 .stars {
     font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #F4D03F;  /* UPDATED */
+    margin-bottom: 15px;
 }
 
-.review-card p {
-    margin-bottom: 10px;
+.review-text {
+    font-family: 'Lato', sans-serif;
     font-size: 1rem;
-    color: #EDE6D4;  /* UPDATED */
-}
-
-.reviewer {
-    font-size: 0.9rem;
-    opacity: 0.8;  /* UPDATED */
+    color: #EDE6D4;
+    line-height: 1.7;
+    margin: 0 0 15px 0;
     font-style: italic;
-    color: #EDE6D4;  /* UPDATED */
 }
 
-.about-images {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+.review-author {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(237, 230, 212, 0.7);
+    margin: 0;
+    font-weight: 500;
 }
 
-.about-img {
+/* Photo Slider */
+.photo-slider {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    overflow: hidden;
+    margin-top: 40px;
     border-radius: 8px;
-    background: rgba(237, 230, 212, 0.1);  /* UPDATED */
 }
 
-@media (max-width: 900px) {
-    .about-content {
-        grid-template-columns: 1fr;
+.slider-track {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    width: fit-content;
+}
+
+.slider-img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
     }
 }
+
+/* Pause animation on hover */
+.photo-slider:hover .slider-track {
+    animation-play-state: paused;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .definition-side,
+    .text-side {
+        padding: 60px 30px;
+    }
+    
+    .reviews-photos-section {
+        padding: 60px 20px 40px;
+    }
+    
+    .review-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .slider-img {
+        width: 280px;
+        height: 200px;
+    }
+}
+/* END OF ABOUT SECTION - Keep .contact { below this */
+
+
 
         .contact {
             background: #4B4D39 ;
@@ -608,35 +712,61 @@ html {
     </section>
 
 <!-- About Section -->
-<section id="about" class="about">
-    <div class="about-content">
-        <div class="about-text fade-in-left">
-            <h2>About Sōma</h2>
-            <div class="soma-definition">
-                <p class="definition"><em>Sōma</em> (σῶμα) — Ancient Greek word for "body"</p>
+<section class="about" id="about">
+    <div class="about-container">
+        <!-- Left: Sōma Definition (Dictionary Style) -->
+        <div class="definition-side">
+            <div class="definition-card">
+                <h1 class="definition-word">sōma</h1>
+                <p class="definition-pronunciation">[ˈsō-mə] noun</p>
+                <p class="definition-text">Ancient Greek word for "body"; the physical form as a vessel of healing, strength, and renewal.</p>
             </div>
+        </div>
+        
+        <!-- Right: About Us Text -->
+        <div class="text-side">
+            <h2>About Sōma</h2>
             <p>We bring the art of therapeutic massage to your doorstep in Mykonos. Whether you're at your villa, hotel, or beachside retreat, our mobile service delivers personalized relaxation and recovery treatments designed for your body's unique needs.</p>
             <p>Trained in Swedish, deep tissue, and sports massage techniques, we combine ancient wellness wisdom with modern therapeutic practice.</p>
-            
-            <!-- Google Reviews -->
-            <div class="reviews">
-                <h3>What our clients say</h3>
+        </div>
+    </div>
+    
+    <!-- Reviews & Photos Section (Green Background) -->
+    <div class="reviews-photos-section">
+        <div class="reviews-container">
+            <h3>What Our Clients Say</h3>
+            <div class="review-cards">
                 <div class="review-card">
-                    <p class="stars">⭐⭐⭐⭐⭐</p>
-                    <p>"Best massage I've ever had. Came directly to our villa and the sunset session was unforgettable."</p>
-                    <p class="reviewer">— Maria K., Google Reviews</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Absolutely incredible experience. The massage was exactly what I needed after a long day exploring the island."</p>
+                    <p class="review-author">— Maria K.</p>
                 </div>
                 <div class="review-card">
-                    <p class="stars">⭐⭐⭐⭐⭐</p>
-                    <p>"Professional, calming, exactly what we needed after exploring the island all day."</p>
-                    <p class="reviewer">— James T., Google Reviews</p>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Professional, relaxing, and so convenient. Highly recommend for anyone visiting Mykonos."</p>
+                    <p class="review-author">— James R.</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Best massage I've ever had. The therapist was skilled and attentive to my needs."</p>
+                    <p class="review-author">— Sophia L.</p>
                 </div>
             </div>
         </div>
         
-        <div class="about-images fade-in-right">
-            <img src="massage1.jpg" alt="Sōma massage treatment" class="about-img">
-            <img src="massage2.jpg" alt="Mykonos mobile massage" class="about-img">
+        <!-- Photo Slider -->
+        <div class="photo-slider">
+            <div class="slider-track">
+                <img src="massage1.jpg" alt="Massage therapy" class="slider-img">
+                <img src="massage2.jpg" alt="Relaxation treatment" class="slider-img">
+                <img src="massage3.jpg" alt="Therapeutic session" class="slider-img">
+                <img src="massage4.jpg" alt="Wellness experience" class="slider-img">
+                <!-- Duplicate for seamless loop -->
+                <img src="massage1.jpg" alt="Massage therapy" class="slider-img">
+                <img src="massage2.jpg" alt="Relaxation treatment" class="slider-img">
+                <img src="massage3.jpg" alt="Therapeutic session" class="slider-img">
+                <img src="massage4.jpg" alt="Wellness experience" class="slider-img">
+            </div>
         </div>
     </div>
 </section>
