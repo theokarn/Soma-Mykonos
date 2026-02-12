@@ -305,6 +305,7 @@ nav.scrolled .nav-links a {
         }
         
 /* About Section - REPLACE EVERYTHING FROM HERE */
+
 .about {
     background: #EDE6D4;
     padding: 0;
@@ -313,7 +314,7 @@ nav.scrolled .nav-links a {
 .about-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 70vh;
+    min-height: 90vh; /* Increased from 70vh */
 }
 
 /* Left Side: Dictionary Definition */
@@ -322,7 +323,7 @@ nav.scrolled .nav-links a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 60px;
+    padding: 100px 60px; /* Increased from 80px */
 }
 
 .definition-card {
@@ -330,9 +331,9 @@ nav.scrolled .nav-links a {
 }
 
 .definition-word {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Gowun Batang', serif; /* Changed font */
     font-size: clamp(4rem, 8vw, 6rem);
-    font-weight: 300;
+    font-weight: 400;
     color: #000000;
     margin: 0 0 15px 0;
     line-height: 1;
@@ -360,11 +361,11 @@ nav.scrolled .nav-links a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px 60px;
+    padding: 100px 60px; /* Increased from 80px */
 }
 
 .text-side h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Lato', sans-serif; /* Changed from Cormorant to Lato */
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 400;
     color: #4B4D39;
@@ -392,7 +393,7 @@ nav.scrolled .nav-links a {
 }
 
 .reviews-container h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Gowun Batang', serif; /* Changed font for consistency */
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 400;
     color: #EDE6D4;
@@ -479,15 +480,44 @@ nav.scrolled .nav-links a {
     animation-play-state: paused;
 }
 
+/* Scroll Animations */
+.fade-in-left,
+.fade-in-right,
+.fade-in-up {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left {
+    transform: translateX(-50px);
+}
+
+.fade-in-right {
+    transform: translateX(50px);
+}
+
+.fade-in-up {
+    transform: translateY(50px);
+}
+
+.fade-in-left.appear,
+.fade-in-right.appear,
+.fade-in-up.appear {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .about-container {
         grid-template-columns: 1fr;
+        min-height: auto;
     }
     
     .definition-side,
     .text-side {
-        padding: 60px 30px;
+        padding: 80px 30px; /* Adjusted for mobile */
+        min-height: 60vh;
     }
     
     .reviews-photos-section {
@@ -503,6 +533,7 @@ nav.scrolled .nav-links a {
         height: 200px;
     }
 }
+
 /* END OF ABOUT SECTION - Keep .contact { below this */
 
 
@@ -715,7 +746,7 @@ html {
 <section class="about" id="about">
     <div class="about-container">
         <!-- Left: Sōma Definition (Dictionary Style) -->
-        <div class="definition-side">
+        <div class="definition-side fade-in-left">
             <div class="definition-card">
                 <h1 class="definition-word">sōma</h1>
                 <p class="definition-pronunciation">[ˈsō-mə] noun</p>
@@ -724,7 +755,7 @@ html {
         </div>
         
         <!-- Right: About Us Text -->
-        <div class="text-side">
+        <div class="text-side fade-in-right">
             <h2>About Sōma</h2>
             <p>We bring the art of therapeutic massage to your doorstep in Mykonos. Whether you're at your villa, hotel, or beachside retreat, our mobile service delivers personalized relaxation and recovery treatments designed for your body's unique needs.</p>
             <p>Trained in Swedish, deep tissue, and sports massage techniques, we combine ancient wellness wisdom with modern therapeutic practice.</p>
@@ -732,7 +763,7 @@ html {
     </div>
     
     <!-- Reviews & Photos Section (Green Background) -->
-    <div class="reviews-photos-section">
+    <div class="reviews-photos-section fade-in-up">
         <div class="reviews-container">
             <h3>What Our Clients Say</h3>
             <div class="review-cards">
