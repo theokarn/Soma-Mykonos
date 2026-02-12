@@ -388,7 +388,7 @@ nav.scrolled .nav-links a {
 .service-card {
     background: #FFFFFF;
     border: 2px solid transparent;
-    border-radius: 12px !important;
+    border-radius: 12px;
     padding: 35px;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -397,7 +397,6 @@ nav.scrolled .nav-links a {
 
 .service-card:hover {
     border-color: #4B4D39;
-    border-radius: 12px !important;
     transform: translateX(10px);
     box-shadow: 0 8px 25px rgba(75, 77, 57, 0.15);
 }
@@ -405,13 +404,16 @@ nav.scrolled .nav-links a {
 .service-card.active {
     background: #4B4D39;
     border-color: #4B4D39;
-    border-radius: 12px !important;
     transform: scale(1.02);
     box-shadow: 0 10px 30px rgba(75, 77, 57, 0.25);
 }
 
-.service-card.active * {
-    color: #EDE6D4 !important;
+/* Target specific elements instead of wildcard */
+.service-card.active h3,
+.service-card.active .service-price,
+.service-card.active .service-duration,
+.service-card.active .service-description {
+    color: #EDE6D4;
 }
 
 .service-header {
