@@ -343,20 +343,20 @@ nav.scrolled .nav-links a {
     background: transparent;
     border: 2px solid #4B4D39;
     color: #4B4D39;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    font-size: 1.8rem;
-    font-weight: 300;
+    font-size: 2rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 0;
 }
 
-.nav-arrow:hover {
+.nav-arrow:hover:not(:disabled) {
     background: #4B4D39;
     color: #EDE6D4;
     transform: scale(1.1);
@@ -365,8 +365,8 @@ nav.scrolled .nav-links a {
 .nav-arrow:disabled {
     opacity: 0.3;
     cursor: not-allowed;
-    transform: scale(1);
 }
+
 
 /* Services Slider */
 .services-slider {
@@ -388,7 +388,7 @@ nav.scrolled .nav-links a {
 .service-card {
     background: #FFFFFF;
     border: 2px solid transparent;
-    border-radius: 12px;
+    border-radius: 12px !important;
     padding: 35px;
     cursor: pointer;
     transition: all 0.4s ease;
@@ -397,6 +397,7 @@ nav.scrolled .nav-links a {
 
 .service-card:hover {
     border-color: #4B4D39;
+    border-radius: 12px !important;
     transform: translateX(10px);
     box-shadow: 0 8px 25px rgba(75, 77, 57, 0.15);
 }
@@ -404,6 +405,7 @@ nav.scrolled .nav-links a {
 .service-card.active {
     background: #4B4D39;
     border-color: #4B4D39;
+    border-radius: 12px !important;
     transform: scale(1.02);
     box-shadow: 0 10px 30px rgba(75, 77, 57, 0.25);
 }
