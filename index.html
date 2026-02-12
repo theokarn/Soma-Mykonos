@@ -314,7 +314,15 @@ nav.scrolled .nav-links a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-y: auto;
+    overflow: hidden;
+}
+
+/* Services Header with Navigation */
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 .services-title {
@@ -322,7 +330,58 @@ nav.scrolled .nav-links a {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 400;
     color: #4B4D39;
-    margin: 0 0 50px 0;
+    margin: 0;
+}
+
+/* Navigation Arrows */
+.services-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: 2px solid #4B4D39;
+    color: #4B4D39;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.nav-arrow:hover {
+    background: #4B4D39;
+    color: #EDE6D4;
+    transform: scale(1.1);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+/* Services Slider */
+.services-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-page {
+    display: none;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.services-page.active {
+    display: flex;
 }
 
 /* Service Cards */
@@ -331,7 +390,6 @@ nav.scrolled .nav-links a {
     border: 2px solid transparent;
     border-radius: 12px;
     padding: 35px;
-    margin-bottom: 25px;
     cursor: pointer;
     transition: all 0.4s ease;
     position: relative;
@@ -438,6 +496,12 @@ nav.scrolled .nav-links a {
     .services-content-side {
         padding: 60px 30px;
         order: 2;
+    }
+    
+    .services-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
     }
     
     .service-card {
@@ -958,48 +1022,105 @@ html {
             <div class="service-image" data-service="sports">
                 <img src="sports-massage.jpg" alt="Sports Massage">
             </div>
+            <div class="service-image" data-service="hot-stone">
+                <img src="hot-stone-massage.jpg" alt="Hot Stone Massage">
+            </div>
+            <div class="service-image" data-service="aromatherapy">
+                <img src="aromatherapy-massage.jpg" alt="Aromatherapy Massage">
+            </div>
+            <div class="service-image" data-service="couples">
+                <img src="couples-massage.jpg" alt="Couples Massage">
+            </div>
             <div class="image-overlay"></div>
         </div>
         
-        <!-- Right Side: All Services Visible -->
+        <!-- Right Side: Services with Navigation -->
         <div class="services-content-side">
-            <h2 class="services-title">Our Services</h2>
-            
-            <!-- Service 1: Swedish Massage -->
-            <div class="service-card active" data-service="swedish">
-                <div class="service-header">
-                    <h3>Swedish Massage</h3>
-                    <span class="service-price">€100</span>
+            <div class="services-header">
+                <h2 class="services-title">Our Services</h2>
+                <div class="services-nav">
+                    <button class="nav-arrow prev-arrow" aria-label="Previous services">‹</button>
+                    <button class="nav-arrow next-arrow" aria-label="Next services">›</button>
                 </div>
-                <p class="service-duration">60 minutes</p>
-                <p class="service-description">Gentle, flowing strokes to promote relaxation, improve circulation, and ease muscle tension. Perfect for unwinding after a day in the sun.</p>
-                <button class="service-cta">Book Swedish Massage</button>
             </div>
             
-            <!-- Service 2: Deep Tissue -->
-            <div class="service-card" data-service="deep-tissue">
-                <div class="service-header">
-                    <h3>Deep Tissue Massage</h3>
-                    <span class="service-price">€120</span>
+            <div class="services-slider">
+                <!-- Page 1: First 3 Services -->
+                <div class="services-page active">
+                    <!-- Service 1: Swedish Massage -->
+                    <div class="service-card active" data-service="swedish">
+                        <div class="service-header">
+                            <h3>Swedish Massage</h3>
+                            <span class="service-price">€100</span>
+                        </div>
+                        <p class="service-duration">60 minutes</p>
+                        <p class="service-description">Gentle, flowing strokes to promote relaxation, improve circulation, and ease muscle tension. Perfect for unwinding after a day in the sun.</p>
+                        <button class="service-cta">Book Swedish Massage</button>
+                    </div>
+                    
+                    <!-- Service 2: Deep Tissue -->
+                    <div class="service-card" data-service="deep-tissue">
+                        <div class="service-header">
+                            <h3>Deep Tissue Massage</h3>
+                            <span class="service-price">€120</span>
+                        </div>
+                        <p class="service-duration">60 minutes</p>
+                        <p class="service-description">Targeted pressure to release chronic muscle tension and knots. Ideal for athletes or those with persistent pain and tightness.</p>
+                        <button class="service-cta">Book Deep Tissue</button>
+                    </div>
+                    
+                    <!-- Service 3: Sports Massage -->
+                    <div class="service-card" data-service="sports">
+                        <div class="service-header">
+                            <h3>Sports Massage</h3>
+                            <span class="service-price">€90</span>
+                        </div>
+                        <p class="service-duration">60 minutes</p>
+                        <p class="service-description">Dynamic techniques to enhance performance, prevent injury, and accelerate recovery. Perfect for active lifestyles and post-workout relief.</p>
+                        <button class="service-cta">Book Sports Massage</button>
+                    </div>
                 </div>
-                <p class="service-duration">60 minutes</p>
-                <p class="service-description">Targeted pressure to release chronic muscle tension and knots. Ideal for athletes or those with persistent pain and tightness.</p>
-                <button class="service-cta">Book Deep Tissue</button>
-            </div>
-            
-            <!-- Service 3: Sports Massage -->
-            <div class="service-card" data-service="sports">
-                <div class="service-header">
-                    <h3>Sports Massage</h3>
-                    <span class="service-price">€90</span>
+                
+                <!-- Page 2: Next 3 Services -->
+                <div class="services-page">
+                    <!-- Service 4: Hot Stone -->
+                    <div class="service-card" data-service="hot-stone">
+                        <div class="service-header">
+                            <h3>Hot Stone Massage</h3>
+                            <span class="service-price">€130</span>
+                        </div>
+                        <p class="service-duration">75 minutes</p>
+                        <p class="service-description">Heated stones melt away tension and promote deep relaxation. The warmth enhances circulation and soothes tired muscles naturally.</p>
+                        <button class="service-cta">Book Hot Stone</button>
+                    </div>
+                    
+                    <!-- Service 5: Aromatherapy -->
+                    <div class="service-card" data-service="aromatherapy">
+                        <div class="service-header">
+                            <h3>Aromatherapy Massage</h3>
+                            <span class="service-price">€110</span>
+                        </div>
+                        <p class="service-duration">60 minutes</p>
+                        <p class="service-description">Essential oils combined with gentle massage techniques to calm the mind, reduce stress, and restore balance to body and spirit.</p>
+                        <button class="service-cta">Book Aromatherapy</button>
+                    </div>
+                    
+                    <!-- Service 6: Couples -->
+                    <div class="service-card" data-service="couples">
+                        <div class="service-header">
+                            <h3>Couples Massage</h3>
+                            <span class="service-price">€200</span>
+                        </div>
+                        <p class="service-duration">60 minutes</p>
+                        <p class="service-description">Share relaxation with your partner in a synchronized session. Choose any massage style for a personalized couples experience.</p>
+                        <button class="service-cta">Book Couples Massage</button>
+                    </div>
                 </div>
-                <p class="service-duration">60 minutes</p>
-                <p class="service-description">Dynamic techniques to enhance performance, prevent injury, and accelerate recovery. Perfect for active lifestyles and post-workout relief.</p>
-                <button class="service-cta">Book Sports Massage</button>
             </div>
         </div>
     </div>
 </section>
+
 
 
     <!-- Contact Section -->
@@ -1123,33 +1244,83 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <script>
-// Service card interaction - switch featured image
+// Service navigation and interaction
 document.addEventListener('DOMContentLoaded', () => {
     const serviceCards = document.querySelectorAll('.service-card');
     const serviceImages = document.querySelectorAll('.service-image');
+    const servicesPages = document.querySelectorAll('.services-page');
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    let currentPage = 0;
     
+    // Update arrow states
+    function updateArrows() {
+        prevArrow.disabled = currentPage === 0;
+        nextArrow.disabled = currentPage === servicesPages.length - 1;
+    }
+    
+    // Navigate between pages
+    function showPage(pageIndex) {
+        servicesPages.forEach((page, index) => {
+            page.classList.toggle('active', index === pageIndex);
+        });
+        
+        // Auto-select first card on new page
+        const firstCard = servicesPages[pageIndex].querySelector('.service-card');
+        if (firstCard) {
+            serviceCards.forEach(c => c.classList.remove('active'));
+            firstCard.classList.add('active');
+            
+            const serviceName = firstCard.getAttribute('data-service');
+            serviceImages.forEach(img => img.classList.remove('active'));
+            document.querySelector(`.service-image[data-service="${serviceName}"]`).classList.add('active');
+        }
+        
+        updateArrows();
+    }
+    
+    // Arrow click handlers
+    prevArrow.addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+    
+    nextArrow.addEventListener('click', () => {
+        if (currentPage < servicesPages.length - 1) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+    
+    // Service card interaction
     serviceCards.forEach(card => {
         card.addEventListener('click', function() {
             const serviceName = this.getAttribute('data-service');
             
-            // Remove active class from all cards and images
+            // Remove active from all cards
             serviceCards.forEach(c => c.classList.remove('active'));
             serviceImages.forEach(img => img.classList.remove('active'));
             
-            // Add active class to clicked card and corresponding image
+            // Add active to clicked card and image
             this.classList.add('active');
             document.querySelector(`.service-image[data-service="${serviceName}"]`).classList.add('active');
         });
         
-        // Also trigger on hover for smoother UX
+        // Hover effect for images
         card.addEventListener('mouseenter', function() {
             const serviceName = this.getAttribute('data-service');
             serviceImages.forEach(img => img.classList.remove('active'));
             document.querySelector(`.service-image[data-service="${serviceName}"]`).classList.add('active');
         });
     });
+    
+    // Initialize
+    updateArrows();
 });
 </script>
+
 
 
 </body>
