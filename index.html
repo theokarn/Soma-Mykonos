@@ -143,7 +143,7 @@ nav.scrolled .nav-links a {
         }
         
      .hero {
-    height: 100vh;
+    height: 110vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -868,6 +868,12 @@ const observerOptions = {
     rootMargin: '0px 0px -300px 0px'
 };
 
+// Separate observer for green section (triggers immediately)
+const greenSectionOptions = {
+    threshold: 0.05,
+    rootMargin: '0px 0px 0px 0px'
+};
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -876,10 +882,25 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+const greenObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+        }
+    });
+}, greenSectionOptions);
+
 // Observe all elements with animation classes
 document.addEventListener('DOMContentLoaded', () => {
-    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-up');
+    // Regular animations (delayed trigger)
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
     fadeElements.forEach(el => observer.observe(el));
+    
+    // Green section with immediate trigger
+    const greenSection = document.querySelector('.reviews-photos-section.fade-in-up');
+    if (greenSection) {
+        greenObserver.observe(greenSection);
+    }
 });
 </script>
 
