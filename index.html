@@ -256,53 +256,195 @@ nav.scrolled .nav-links a {
     }
 }
         
-        .services {
-            background: #EDE6D4 ;
-            padding: 100px 50px;
-            color: #4B4D39 ;
-        }
-        
-        .services h2 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 70px;
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .service-card {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 40px 30px;
-            border-radius: 6px;
-            border: 1px solid rgba(75, 77, 57, 0.1);
-        }
-        
-        .service-card h3 {
-            font-size: 1.6rem;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-        
-        .service-card p {
-            color: #4B4D39 ;
-            opacity: 0.8;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            font-size: 15px;
-        }
-        
-        .price {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #4B4D39 ;
-        }
+        /* Services Section */
+
+.services {
+    background: #EDE6D4;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* Left Side: Featured Image */
+.services-image-side {
+    position: relative;
+    overflow: hidden;
+    background: #4B4D39;
+}
+
+.service-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.service-image.active {
+    opacity: 1;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(75, 77, 57, 0.3), transparent);
+    pointer-events: none;
+}
+
+/* Right Side: Services List */
+.services-content-side {
+    background: #EDE6D4;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.services-title {
+    font-family: 'Gowun Batang', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 400;
+    color: #4B4D39;
+    margin: 0 0 50px 0;
+}
+
+/* Service Cards */
+.service-card {
+    background: #FFFFFF;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.service-card:hover {
+    border-color: #4B4D39;
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(75, 77, 57, 0.15);
+}
+
+.service-card.active {
+    background: #4B4D39;
+    border-color: #4B4D39;
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(75, 77, 57, 0.25);
+}
+
+.service-card.active * {
+    color: #EDE6D4 !important;
+}
+
+.service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.service-card h3 {
+    font-family: 'Gowun Batang', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #4B4D39;
+    margin: 0;
+}
+
+.service-price {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #4B4D39;
+}
+
+.service-duration {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    color: #666666;
+    margin: 0 0 15px 0;
+    font-style: italic;
+}
+
+.service-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+}
+
+.service-cta {
+    font-family: 'Lato', sans-serif;
+    background: transparent;
+    border: 2px solid #4B4D39;
+    color: #4B4D39;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.service-cta:hover {
+    background: #4B4D39;
+    color: #EDE6D4;
+}
+
+.service-card.active .service-cta {
+    background: #EDE6D4;
+    border-color: #EDE6D4;
+    color: #4B4D39;
+}
+
+.service-card.active .service-cta:hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-image-side {
+        min-height: 50vh;
+        order: 1;
+    }
+    
+    .services-content-side {
+        padding: 60px 30px;
+        order: 2;
+    }
+    
+    .service-card {
+        padding: 25px;
+    }
+}
+
         
 /* About Section - REPLACE EVERYTHING FROM HERE */
 
@@ -803,26 +945,62 @@ html {
 </section>
     
 <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Swedish Massage</h3>
-                <p>Classic relaxation massage using gentle pressure to ease tension and improve circulation. Perfect for unwinding.</p>
-                <p class="price">€100</p>
+<section class="services" id="services">
+    <div class="services-container">
+        <!-- Left Side: Large Featured Image -->
+        <div class="services-image-side">
+            <div class="service-image active" data-service="swedish">
+                <img src="swedish-massage.jpg" alt="Swedish Massage">
             </div>
-            <div class="service-card">
-                <h3>Deep Tissue</h3>
-                <p>Intense therapeutic massage targeting chronic muscle tension and knots. Ideal for recovery and relief.</p>
-                <p class="price">€120</p>
+            <div class="service-image" data-service="deep-tissue">
+                <img src="deep-tissue-massage.jpg" alt="Deep Tissue Massage">
             </div>
-            <div class="service-card">
-                <h3>Sports Massage</h3>
-                <p>Dynamic treatment designed for active lifestyles. Enhances flexibility and prevents injury.</p>
-                <p class="price">€90</p>
+            <div class="service-image" data-service="sports">
+                <img src="sports-massage.jpg" alt="Sports Massage">
+            </div>
+            <div class="image-overlay"></div>
+        </div>
+        
+        <!-- Right Side: All Services Visible -->
+        <div class="services-content-side">
+            <h2 class="services-title">Our Services</h2>
+            
+            <!-- Service 1: Swedish Massage -->
+            <div class="service-card active" data-service="swedish">
+                <div class="service-header">
+                    <h3>Swedish Massage</h3>
+                    <span class="service-price">€100</span>
+                </div>
+                <p class="service-duration">60 minutes</p>
+                <p class="service-description">Gentle, flowing strokes to promote relaxation, improve circulation, and ease muscle tension. Perfect for unwinding after a day in the sun.</p>
+                <button class="service-cta">Book Swedish Massage</button>
+            </div>
+            
+            <!-- Service 2: Deep Tissue -->
+            <div class="service-card" data-service="deep-tissue">
+                <div class="service-header">
+                    <h3>Deep Tissue Massage</h3>
+                    <span class="service-price">€120</span>
+                </div>
+                <p class="service-duration">60 minutes</p>
+                <p class="service-description">Targeted pressure to release chronic muscle tension and knots. Ideal for athletes or those with persistent pain and tightness.</p>
+                <button class="service-cta">Book Deep Tissue</button>
+            </div>
+            
+            <!-- Service 3: Sports Massage -->
+            <div class="service-card" data-service="sports">
+                <div class="service-header">
+                    <h3>Sports Massage</h3>
+                    <span class="service-price">€90</span>
+                </div>
+                <p class="service-duration">60 minutes</p>
+                <p class="service-description">Dynamic techniques to enhance performance, prevent injury, and accelerate recovery. Perfect for active lifestyles and post-workout relief.</p>
+                <button class="service-cta">Book Sports Massage</button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -943,6 +1121,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 </script>
+
+<script>
+// Service card interaction - switch featured image
+document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    const serviceImages = document.querySelectorAll('.service-image');
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const serviceName = this.getAttribute('data-service');
+            
+            // Remove active class from all cards and images
+            serviceCards.forEach(c => c.classList.remove('active'));
+            serviceImages.forEach(img => img.classList.remove('active'));
+            
+            // Add active class to clicked card and corresponding image
+            this.classList.add('active');
+            document.querySelector(`.service-image[data-service="${serviceName}"]`).classList.add('active');
+        });
+        
+        // Also trigger on hover for smoother UX
+        card.addEventListener('mouseenter', function() {
+            const serviceName = this.getAttribute('data-service');
+            serviceImages.forEach(img => img.classList.remove('active'));
+            document.querySelector(`.service-image[data-service="${serviceName}"]`).classList.add('active');
+        });
+    });
+});
+</script>
+
 
 </body>
 </html>
